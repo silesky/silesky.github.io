@@ -1,0 +1,15 @@
+
+body {
+    width:100%;
+    background-color: black;
+    font-family: 'Asap', sans-serif;
+    color: white;
+}
+
+div.center {
+    width: 50%;
+    margin:auto;
+
+}
+
+
