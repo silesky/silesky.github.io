@@ -1,7 +1,1 @@
-node_modules/
-bower_components/
-*.log
-.c9
-
-build/
-dist/
+.DS_Store
