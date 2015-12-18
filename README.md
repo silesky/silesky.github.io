@@ -1,3 +1,3 @@
 silesky.github.io
 git push -u origin master
-git@github.com:silesky/silesky.github.io.git
+9git@github.com:silesky/silw434esky.github.io.git
