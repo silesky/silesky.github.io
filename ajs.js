@@ -10,7 +10,7 @@ const createEvent = (eventName, cb, selector) => {
       console.timeEnd(eventName);
       console.profileEnd(eventName);
       ctx.flush();
-      document.querySelector("#logs").textContent = JSON.stringify(
+      document.getElementById("logs").textContent = JSON.stringify(
         ctx.event,
         null,
         "  "
@@ -50,3 +50,16 @@ createEvent(
   },
   "#page"
 );
+
+const loadAjsBundleName = () => {
+  fetch(
+    "https://unpkg.com/@segment/analytics-next/dist/umd/standalone.js"
+  ).then((res) => {
+    document.getElementById("ajs-bundle-name").textContent = res.url.replace(
+      "https://unpkg.com/",
+      ""
+    );
+  });
+};
+
+loadAjsBundleName();
