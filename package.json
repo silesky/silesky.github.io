@@ -4,7 +4,7 @@
   "description": "silesky.github.io git push -u origin master 9git@github.com:silesky/silw434esky.github.io.git",
   "main": "index.js",
   "scripts": {
-    "start": "http-server ."
+    "start": "live-server . --browser"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/silesky/silesky.github.io/issues"
   },
-  "homepage": "https://github.com/silesky/silesky.github.io#readme"
+  "homepage": "https://github.com/silesky/silesky.github.io#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
 }
