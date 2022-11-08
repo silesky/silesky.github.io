@@ -76,7 +76,7 @@
               var t = document.createElement('script')
               t.type = 'text/javascript'
               t.async = !0
-              t.src = 'https://unpkg.com/@segment/analytics-next/dist/umd/standalone.js'
+              t.src = 'https://cdn.segment.com/analytics-next/br/master/latest/standalone.js'
               var n = document.getElementsByTagName('script')[0]
               n.parentNode.insertBefore(t, n)
               analytics._loadOptions = e
@@ -92,7 +92,7 @@
 </head>
 
 <body>
-  <h4 id="ajs-bundle-name"></h4>
+  <h4>https://cdn.segment.com/analytics-next/br/master/latest/standalone.js</h4>
   <form>
     <textarea name="event" id="event">
 {
@@ -113,16 +113,6 @@
   <pre id="logs"></pre>
 
   <script src="ajs.js"></script>
-  <script>
-    fetch(
-      "https://unpkg.com/@segment/analytics-next/dist/umd/standalone.js"
-    ).then((res) => {
-      document.getElementById("ajs-bundle-name").textContent = res.url.replace(
-        "https://unpkg.com/",
-        ""
-      );
-    });
-  </script>
 
 </body>
 

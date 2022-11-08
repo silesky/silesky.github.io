@@ -50,16 +50,3 @@ createEvent(
   },
   "#page"
 );
-
-const loadAjsBundleName = () => {
-  fetch(
-    "https://unpkg.com/@segment/analytics-next/dist/umd/standalone.js"
-  ).then((res) => {
-    document.getElementById("ajs-bundle-name").textContent = res.url.replace(
-      "https://unpkg.com/",
-      ""
-    );
-  });
-};
-
-loadAjsBundleName();
