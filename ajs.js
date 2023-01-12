@@ -1,3 +1,7 @@
+window.analytics.ready(() => {
+  console.log(window.analytics.VERSION)
+})
+
 const createEvent = (eventName, cb, selector) => {
   document.querySelector(selector).addEventListener("click", function (e) {
     e.preventDefault();
