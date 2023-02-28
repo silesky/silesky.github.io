@@ -34,8 +34,9 @@
   </script>
 
   <script>
-    DEFAULT_WRITE_KEY= "9lSrez3BlfLAJ7NOChrqWtILiATiycoc"
-    CDN_URL = "https://analytics.cd-production.library-test-site.com";
+    const DEFAULT_WRITE_KEY = "9lSrez3BlfLAJ7NOChrqWtILiATiycoc"
+    const CDN_URL = "https://analytics.cd-production.library-test-site.com";
+    const API_HOST = "api.cd-production.library-test-site.com/v1";
     window._cdn = CDN_URL // doing this just for demonstration purposes
 
 
@@ -103,7 +104,7 @@
             }
             analytics.SNIPPET_VERSION = '4.13.1'
             analytics._writeKey = writeKey
-            analytics.load(writeKey)
+            analytics.load(writeKey, { integrations: { "Segment.io": { apiHost: API_HOST } } })
             analytics.page()
           }
       })()
