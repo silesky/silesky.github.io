@@ -19,6 +19,7 @@
   </form>
 
   <script>
+    var ogFetch = window.fetch
     var _dumbFetchPolyfillThatTriggersPreflight = () => {
       console.log("adding dumb fetch polyfill that overrides content type...");
 
@@ -34,6 +35,7 @@
   </script>
 
   <script>
+    _dumbFetchPolyfillThatTriggersPreflight()
     const DEFAULT_WRITE_KEY = "9lSrez3BlfLAJ7NOChrqWtILiATiycoc"
     const CDN_URL = "https://analytics.cd-production.library-test-site.com";
     const API_HOST = "api.cd-production.library-test-site.com/v1";
