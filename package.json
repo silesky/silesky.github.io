@@ -4,7 +4,8 @@
   "description": "silesky.github.io git push -u origin master 9git@github.com:silesky/silw434esky.github.io.git",
   "main": "index.js",
   "scripts": {
-    "start": "live-server . --browser"
+    "start": "live-server . --browser",
+    "dev": "npm start"
   },
   "repository": {
     "type": "git",
