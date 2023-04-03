@@ -1,8 +1,7 @@
 {
   "name": "silesky.github.io",
   "version": "1.0.0",
-  "description": "silesky.github.io git push -u origin master 9git@github.com:silesky/silw434esky.github.io.git",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "start": "live-server . --browser",
     "dev": "npm start"
@@ -11,12 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/silesky/silesky.github.io.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/silesky/silesky.github.io/issues"
-  },
-  "homepage": "https://github.com/silesky/silesky.github.io#readme",
+  "license": "MIT",
   "devDependencies": {
     "live-server": "^1.2.2"
   }
