@@ -11,7 +11,6 @@
       min-height: 200px;
       min-width: 700px;
     }
-
   </style>
   <form method="get">
     <input type="text" name="writeKey" placeholder="Writekey" />
@@ -21,8 +20,11 @@
   <script>
     const { searchParams } = new URL(document.location);
     const writeKey = searchParams.get("writeKey");
+    const version = searchParams.get("version");
     document.querySelector("input").value = writeKey;
 
+    const packageSrc = version ? `https://unpkg.com/@segment/analytics-next@${version}/dist/umd/standalone.js` :
+      "https://unpkg.com/@segment/analytics-next/dist/umd/standalone.js";
     if (writeKey) {
       console.profile('snippet')
       console.time('snippet')
@@ -76,7 +78,7 @@
               var t = document.createElement('script')
               t.type = 'text/javascript'
               t.async = !0
-              t.src = 'https://unpkg.com/@segment/analytics-next/dist/umd/standalone.js'
+              t.src = packageSrc
               var n = document.getElementsByTagName('script')[0]
               n.parentNode.insertBefore(t, n)
               analytics._loadOptions = e
@@ -92,7 +94,9 @@
 </head>
 
 <body>
+  <h1>Analytics.js @ npm playground</h1>
   <h4 id="ajs-bundle-name"></h4>
+  <p>Note: Use optional "version" query parameter</p>
   <form>
     <textarea name="event" id="event">
 {
@@ -115,7 +119,7 @@
   <script src="ajs.js"></script>
   <script>
     fetch(
-      "https://unpkg.com/@segment/analytics-next/dist/umd/standalone.js"
+      packageSrc
     ).then((res) => {
       document.getElementById("ajs-bundle-name").textContent = res.url.replace(
         "https://unpkg.com/",
