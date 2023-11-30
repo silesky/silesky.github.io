@@ -1,6 +1,6 @@
 <html>
 
-<head>
+<>
   <style>
     body {
       font-family: monospace;
@@ -11,7 +11,6 @@
       min-height: 200px;
       min-width: 700px;
     }
-
   </style>
   <form method="get">
     <input type="text" name="writeKey" placeholder="Writekey" />
@@ -26,75 +25,22 @@
     if (writeKey) {
       console.profile('snippet')
       console.time('snippet')
-      !(function () {
-        var analytics = (window.analytics = window.analytics || [])
-        if (!analytics.initialize)
-          if (analytics.invoked)
-            window.console &&
-              console.error &&
-              console.error('Segment snippet included twice.')
-          else {
-            analytics.invoked = !0
-            analytics.methods = [
-              'screen',
-              'register',
-              'deregister',
-              'trackSubmit',
-              'trackClick',
-              'trackLink',
-              'trackForm',
-              'pageview',
-              'identify',
-              'reset',
-              'group',
-              'track',
-              'ready',
-              'alias',
-              'debug',
-              'page',
-              'once',
-              'off',
-              'on',
-              'addSourceMiddleware',
-              'addIntegrationMiddleware',
-              'setAnonymousId',
-              'addDestinationMiddleware',
-            ]
-            analytics.factory = function (e) {
-              return function () {
-                var t = Array.prototype.slice.call(arguments)
-                t.unshift(e)
-                analytics.push(t)
-                return analytics
-              }
-            }
-            for (var e = 0; e < analytics.methods.length; e++) {
-              var key = analytics.methods[e]
-              analytics[key] = analytics.factory(key)
-            }
-            analytics.load = function (key, e) {
-              var t = document.createElement('script')
-              t.type = 'text/javascript'
-              t.async = !0
-              t.src = "https://cdn.segment.com/analytics.js/v1/" + writeKey + "/analytics.min.js";
-              var n = document.getElementsByTagName('script')[0]
-              n.parentNode.insertBefore(t, n)
-              analytics._loadOptions = e
-            }
-            analytics.SNIPPET_VERSION = '4.13.1'
-            analytics._writeKey = writeKey
-            analytics.load()
-            analytics.page()
-          }
-      })()
+      !function () {
+        function p() { var c = document.querySelector("link[rel='canonical']"); return { __t: "bpc", c: c && c.getAttribute("href") || void 0, p: location.pathname, u: location.href, s: location.search, t: document.title, r: document.referrer } } var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
+          analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "screen", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware", "register"]; analytics.factory = function (e) { return function () { if (window.analytics.initialized) return window.analytics[e].apply(window.analytics, arguments); var n = Array.prototype.slice.call(arguments);["track", "screen", "alias", "group", "page", "identify"].indexOf(e) > -1 && n.push(p()); n.unshift(e); analytics.push(n); return analytics } }; for (var n = 0; n < analytics.methods.length; n++) { var key = analytics.methods[n]; analytics[key] = analytics.factory(key) } analytics.load = function (key, n) { var t = document.createElement("script"); t.type = "text/javascript"; t.async = !0; t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(t, i); analytics._loadOptions = n }; analytics._writeKey = "9lSrez3BlfLAJ7NOChrqWtILiATiycoc";; analytics.SNIPPET_VERSION = "5.0.1";
+          analytics.load("9lSrez3BlfLAJ7NOChrqWtILiATiycoc");
+          analytics.page();
+        }
+      }();
+
     }
   </script>
-</head>
+  </head>
 
-<body>
-  <h4>Snippet</h4>
-  <form>
-    <textarea name="event" id="event">
+  <body>
+    <h4>Snippet</h4>
+    <form>
+      <textarea name="event" id="event">
 {
   "name": "hi",
   "properties": { },
@@ -102,18 +48,18 @@
   "options": { }
 }
     </textarea>
-    <div>
-      <button id="track">Track</button>
-      <button id="identify">Identify</button>
-      <button id="page">Page</button>
-    </div>
-  </form>
+      <div>
+        <button id="track">Track</button>
+        <button id="identify">Identify</button>
+        <button id="page">Page</button>
+      </div>
+    </form>
 
-  <pre id="ready-logs"></pre>
-  <pre id="logs"></pre>
+    <pre id="ready-logs"></pre>
+    <pre id="logs"></pre>
 
-  <script src="ajs.js"></script>
+    <script src="ajs.js"></script>
 
-</body>
+  </body>
 
 </html>
