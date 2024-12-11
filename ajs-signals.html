@@ -99,15 +99,13 @@
     })
     signalsPlugin.debug(true)
     console.log(`Loading analytics with WRITEKEY=${writeKey} and STAGE=${isStage}`)
-    
-    const loadAnalytics = () =>
+
+    const loadAnalytics = () => {
+      if (isStage) {
+        analytics._cdn = 'https://cdn.segment.build'
+      }
       analytics
-        .load(
-          {
-            writeKey: writeKey,
-            plugins: [signalsPlugin],
-            ...(isStage ? { cdnURL: 'https://cdn.segment.build' } : {}),
-          },
+        .load(writeKey,
           {
             ...(isStage
               ? {
@@ -120,11 +118,13 @@
               : {}),
           }
         )
-      analytics.ready(function () {
-        console.log(`Analytics is ready.`)
-      })
+    }
     analytics.register(signalsPlugin)
-    analytics.load(analytics._writeKey)
+    analytics.ready(function () {
+      console.log(`Analytics is ready!.`)
+    })
+    analytics.register(signalsPlugin)
+    loadAnalytics()
   </script>
 
 <body>
