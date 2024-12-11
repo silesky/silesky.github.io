@@ -2,32 +2,10 @@
 
 <head>
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-    }
 
-    pre {
-      font-family: monospace;
-    }
-
-    span.code {
-      font-family: monospace;
-      background-color: #f4f4f4;
-      padding: 0.5em;
-      border-radius: 0.5em;
-    }
-
-    #event {
-      margin: 2em 0;
-      min-height: 200px;
-      min-width: 700px;
-    }
-  </style>
+  <!-- Configuration -->
   <script>
-
     const STORAGE_TYPE = 'localStorage'
-
     // Function to set localStorage from query string parameters
 
     const queryParams = {
@@ -83,6 +61,7 @@
       storage.getStorage().stage === 'true'
     const writeKey = storage.getStorage().writeKey
   </script>
+
   <!-- Set up analytics instance -->
   <script>
     !function () {
@@ -128,12 +107,29 @@
               : {}),
           }
         )
-      analytics.ready(function () {
+      analytics.ready(() => {
         console.log(`Analytics is ready!`)
       })
     }
     loadAnalytics()
   </script>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    pre {
+      font-family: monospace;
+    }
+
+    span.code {
+      font-family: monospace;
+      background-color: #f4f4f4;
+      padding: 0.5em;
+      border-radius: 0.5em;
+    }
+  </style>
+</head>
 
 <body>
   <h1>Signals Test w/ analytics.js</h1>
@@ -145,7 +141,6 @@
       <input type="number" placeholder="some number input" />
     </div>
   </form>
-
 
 
 </body>
