@@ -3,7 +3,18 @@
 <head>
   <style>
     body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    pre {
       font-family: monospace;
+    }
+
+    span.code {
+      font-family: monospace;
+      background-color: #f4f4f4;
+      padding: 0.5em;
+      border-radius: 0.5em;
     }
 
     #event {
@@ -33,8 +44,7 @@
         return { stage, writeKey, reset }
       }
 
-      console.log('Query params allowed:', JSON.stringify(Object.values(queryParams)))
-      console.log('Query params found:', JSON.stringify(getQueryParams()))
+      console.log('Query params found:', JSON.stringify(getQueryParams(), null, 2))
 
       const clearStorage = () => {
         window[STORAGE_TYPE].removeItem(queryParams.STAGE_KEY_NAME)
@@ -72,7 +82,7 @@
       storage.getStorage().stage === 'true'
     const writeKey = storage.getStorage().writeKey
   </script>
-  <!-- Load Segment (find and replace 'MY_WRITEKEY')  -->
+  <!-- Set up analytics instance -->
   <script>
     !function () {
       var i = "analytics", analytics = window[i] = window[i] || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
@@ -81,18 +91,15 @@
       }
     }();
   </script>
+  <!--- Load Signals Plugin  and instantiate segment -->
   <script
     src="https://cdn.jsdelivr.net/npm/@segment/analytics-signals@latest/dist/umd/analytics-signals.umd.js"></script>
   <script>
-
-
     if (!writeKey) {
       throw new Error(
         `No writekey provided. please add ?${queryParams.WRITE_KEY_NAME}=<writekey> to the URL`
       )
     }
-
-
 
     const loadAnalytics = () => {
       console.log(`Loading analytics with WRITEKEY=${writeKey} and STAGE=${isStage}`)
@@ -128,7 +135,8 @@
   </script>
 
 <body>
-  <h2>Pass query params (?wk=MY_WRITEKEY&stage=true)</h2>
+  <h1>Signals Test w/ analytics.js</h1>
+  <p>Configure with query params: <span class="code">?wk=writekey&stage=true</span></p>
   <form>
     <textarea name="event" id="event" placeholder="some textarea"></textarea>
     <div>
